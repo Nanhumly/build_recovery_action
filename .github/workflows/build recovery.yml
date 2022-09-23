@@ -99,7 +99,7 @@ jobs:
     - name: Generate info
       run: |
         cd ${GITHUB_WORKSPACE}/workspace
-        wget https://raw.githubusercontent.com/xiaoleGun/build_recovery_action/main/get_info.sh
+        wget https://raw.githubusercontent.com/Nanhumly/build_recovery_action/main/get_info.sh
         echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
         bash get_info.sh ${{ github.event.inputs.DEVICE_NAME }}
 
