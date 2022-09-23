@@ -94,7 +94,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}/workspace
         . build/envsetup.sh
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng
-        mka recoveryimage -j2
+        mka bootimage -j2
 
     - name: Generate info
       run: |
@@ -106,7 +106,7 @@ jobs:
     - name: Upload to Release...
       uses: ncipollo/release-action@v1.8.0
       with:
-        artifacts: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery.img
+        artifacts: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/boot.img
         name: ${{ env.RECOVERYISWHAT }}_${{ github.event.inputs.DEVICE_NAME }}_${{ env.BUILD_TIME }}
         tag: ${{ github.event.inputs.DEVICE_NAME }}_${{ env.BUILD_TIME }}
         bodyFile: workspace/info.txt
